@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="ewpsupr.controller.Object"
+	controllerName="ewpsupr1.controller.Object"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.m.semantic">

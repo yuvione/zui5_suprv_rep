@@ -1,7 +1,7 @@
 {
 	"_version": "1.4.0",
 	"sap.app": {
-		"id": "ewpsupr",
+		"id": "ewpsupr1",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -46,7 +46,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "ewpsupr.view.App",
+			"viewName": "ewpsupr1.view.App",
 			"type": "XML",
 			"id": "app"
 		},
@@ -69,7 +69,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "ewpsupr.i18n.i18n"
+					"bundleName": "ewpsupr1.i18n.i18n"
 				}
 			},
 			"": {
@@ -81,7 +81,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "ewpsupr.view",
+				"viewPath": "ewpsupr1.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {

@@ -1,13 +1,13 @@
 sap.ui.define([
-	"ewpsupr/controller/BaseController",
+	"ewpsupr1/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"ewpsupr/model/formatter",
+	"ewpsupr1/model/formatter",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
 ], function(BaseController, JSONModel, formatter, Filter, FilterOperator) {
 	"use strict";
 
-	return BaseController.extend("ewpsupr.controller.Worklist", {
+	return BaseController.extend("ewpsupr1.controller.Worklist", {
 
 		formatter: formatter,
 

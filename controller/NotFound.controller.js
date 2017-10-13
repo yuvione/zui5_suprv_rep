@@ -1,9 +1,9 @@
 sap.ui.define([
-		"ewpsupr/controller/BaseController"
+		"ewpsupr1/controller/BaseController"
 	], function (BaseController) {
 		"use strict";
 
-		return BaseController.extend("ewpsupr.controller.NotFound", {
+		return BaseController.extend("ewpsupr1.controller.NotFound", {
 
 			/**
 			 * Navigates to the worklist when the link is pressed

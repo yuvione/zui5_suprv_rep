@@ -1,4 +1,4 @@
-<mvc:View controllerName="ewpsupr.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+<mvc:View controllerName="ewpsupr1.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
 	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
 	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="false" title="{i18n>worklistViewTitle}">
 		<semantic:content>

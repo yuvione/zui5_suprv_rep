@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"ewpsupr/controller/BaseController",
+		"ewpsupr1/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"ewpsupr/model/formatter"
+		"ewpsupr1/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("ewpsupr.controller.Object", {
+		return BaseController.extend("ewpsupr1.controller.Object", {
 
 			formatter: formatter,
 

@@ -1,6 +1,6 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="ewpsupr.controller.App"
+	controllerName="ewpsupr1.controller.App"
 	displayBlock="true"
 	xmlns="sap.m">
 
