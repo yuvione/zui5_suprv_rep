@@ -1,0 +1,211 @@
+<mvc:View controllerName="ewpsupr.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="false" title="{i18n>worklistViewTitle}">
+		<semantic:content>
+			<f:SimpleForm id='SF0' validateFieldGroup="onValidateFieldGroup" layout="ResponsiveGridLayout">
+				<VBox>
+					<Label text="District Name" textAlign="Right" required="true"/>
+					<ComboBox id="combo" items="{ path: '/districtsSet', length:200}" selectionChange="_onComboBoxChange" width="50%" required="true">
+						<items>
+							<core:Item key="{IvDistrict}" text="{IvDistrict}" textDirection="RTL"/>
+						</items>
+					</ComboBox>
+					<Label text="Month" textAlign="Right" required="true"/>
+					<ComboBox id="combo1" width="50%" required="true">
+						<core:Item key="oct" text="October" textDirection="RTL"/>
+						<core:Item key="nov" text="November" textDirection="RTL"/>
+						<core:Item key="dec" text="December" textDirection="RTL"/>
+						<core:Item key="jan" text="January" textDirection="RTL"/>
+						<core:Item key="feb" text="February" textDirection="RTL"/>
+						<core:Item key="mar" text="March" textDirection="RTL"/>
+						<core:Item key="apr" text="April" textDirection="RTL"/>
+						<core:Item key="may" text="May" textDirection="RTL"/>
+						<core:Item key="jun" text="June" textDirection="RTL"/>
+						<core:Item key="jul" text="July" textDirection="RTL"/>
+						<core:Item key="aug" text="August" textDirection="RTL"/>
+						<core:Item key="sep" text="September" textDirection="RTL"/>
+					</ComboBox>
+					<Label text="Year" textAlign="Right" required="true"/>
+					<ComboBox id="combo2" items="{/years}" width="50%" required="true">
+						<items>
+							<core:Item key="{year}" text="{year}" textDirection="RTL"/>
+						</items>
+					</ComboBox>
+					<Toolbar>
+						<Button text='Submit' press="onRecal" type="Accept" enabled="true" width="25%"/>
+					</Toolbar>
+					<l:VerticalLayout class="sapUiContentPadding" id="oVerticalContent" width="100%">
+						<l:content>
+							<Table id="table" updateFinished="onUpdateFinished" width="auto" class="sapUiResponsiveMargin" items="{'/'}">
+								<columns>
+									<Column >
+										<Text text="Category" id="nameColumnTitle"/>
+									</Column>
+									<Column  hAlign="Right">
+										<Text text="Projected" id="nameColumnTitle1"/>
+									</Column>
+									<Column hAlign="Right">
+										<Text text="Actual" id="nameColumnTitle2"/>
+									</Column>
+									<Column hAlign="Right">
+										<Text text="Delta Hours" id="nameColumnTitle3"/>
+									</Column>
+									<Column hAlign="Right">
+										<Text text="% Delta" id="nameColumnTitle4"/>
+									</Column>
+									<Column  hAlign="Right">
+										<Text text="% Targets" id="nameColumnTitle5"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{IvCat}"/>
+											<Text text="{path: 'ProjHrs',formatter: '.formatter.numberUnit'}"/>
+											<Text text="{path: 'ActHrs',formatter: '.formatter.numberUnit'}"/>
+											<Text text="{path: 'Delta',formatter: '.formatter.numberUnit'}"/>
+											<Text text="{DeltaPer}"/>
+											<Text text="{Target}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<f:SimpleForm>
+								<l:BlockLayout background="Accen">
+									<l:BlockLayoutRow accentCells="Accent1">
+										<l:BlockLayoutCell width="1">
+											<Label text="Exception Category" textAlign="Right" design="Bold"/>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<Label text="Supervisor Review Comments" textAlign="Right" design="Bold"/>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow accentCells="Accent1">
+										<l:BlockLayoutCell width="1">
+											<VBox>
+												<Label text="Appointment Hours" textAlign="Right" required="true"/>
+												<ComboBox id="comboexcp0" items="{'/'}" selectionChange="_onComboBoxChange" required="true">
+													<items>
+														<core:Item key="{ExCat}" text="{ExCat}" textDirection="RTL"/>
+													</items>
+												</ComboBox>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<TextArea id="cmt0" growing="true" width="100%"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="1">
+											<VBox>
+												<Label text="Emergency Hours" textAlign="Right" required="true"/>
+												<ComboBox id="comboexcp1" items="{'/'}" selectionChange="_onComboBoxChange" required="true">
+													<items>
+														<core:Item key="{ExcCat}" text="{ExcCat}" textDirection="RTL"/>
+													</items>
+												</ComboBox>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<TextArea id="cmt1" growing="true" width="100%"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="1">
+											<VBox>
+												<Label text="Non-Appointment Hours" textAlign="Right" required="true"/>
+												<ComboBox id="comboexcp2" items="{'/'}" selectionChange="_onComboBoxChange" required="true">
+													<items>
+														<core:Item key="{ExcCat}" text="{ExcCat}" textDirection="RTL"/>
+													</items>
+												</ComboBox>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<TextArea id="cmt2" growing="true" width="100%"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="1">
+											<VBox>
+												<Label text="Available Time" textAlign="Right" required="true"/>
+												<ComboBox id="comboexcp3" items="{'/'}" selectionChange="_onComboBoxChange" required="true">
+													<items>
+														<core:Item key="{ExcCat}" text="{ExcCat}" textDirection="RTL"/>
+													</items>
+												</ComboBox>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<TextArea id="cmt3" growing="true" width="100%"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="1">
+											<VBox>
+												<Label text="Wrench Time" textAlign="Right" required="true"/>
+												<ComboBox id="comboexcp4" items="{'/'}" selectionChange="_onComboBoxChange" required="true">
+													<items>
+														<core:Item key="{ExcCat}" text="{ExcCat}" textDirection="RTL"/>
+													</items>
+												</ComboBox>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<TextArea id="cmt4" growing="true" width="100%"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="1">
+											<VBox>
+												<Label text="Expired Time" textAlign="Right" required="true"/>
+												<ComboBox id="comboexcp5" items="{'/'}" selectionChange="_onComboBoxChange" required="true">
+													<items>
+														<core:Item key="{ExcCat}" text="{ExcCat}" textDirection="RTL"/>
+													</items>
+												</ComboBox>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="3">
+											<TextArea id="cmt5" growing="true" width="100%"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="3">
+											<VBox>
+												<Label text="Supervisor Review Complete" textAlign="Right" required="true"/>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="1">
+											<CheckBox id='SupRev' select='updateCombo'></CheckBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="8">
+											<TextArea id='usr1' growing="true" width="100%" editable="false"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+									<l:BlockLayoutRow>
+										<l:BlockLayoutCell width="3">
+											<VBox>
+												<Label text="Manager Review Complete" textAlign="Right" required="true"/>
+											</VBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="1">
+											<CheckBox id='MgrRev' select ='updateCombo'></CheckBox>
+										</l:BlockLayoutCell>
+										<l:BlockLayoutCell width="8">
+											<TextArea id = 'usr2' growing="true" width="100%" editable="false"></TextArea>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+								</l:BlockLayout>
+							</f:SimpleForm>
+						</l:content>
+					</l:VerticalLayout>
+				</VBox>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button text="SAVE" press="handleSubmit" type="Emphasized"></Button>
+			<Button text="CANCEL" press="handleCancel"></Button>
+		</semantic:customFooterContent>
+	</semantic:FullscreenPage>
+</mvc:View>

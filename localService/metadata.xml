@@ -1,0 +1,109 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZEWP_ADMIN_APP_SRV_01" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="Subscription" sap:semantics="subscriptions" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Sub. ID" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="user" Type="Edm.String" MaxLength="12" m:FC_TargetPath="SyndicationAuthorName" m:FC_KeepInContent="false" sap:label="User Name" sap:creatable="false" sap:filterable="false"/>
+                <Property Name="updated" Type="Edm.DateTime" Precision="0" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="false" sap:label="Time Stamp" sap:creatable="false" sap:filterable="false"/>
+                <Property Name="title" Type="Edm.String" MaxLength="255" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="false" sap:label="Title" sap:filterable="false"/>
+                <Property Name="deliveryAddress" Type="Edm.String" sap:label="Delivery Address" sap:filterable="false"/>
+                <Property Name="persistNotifications" Type="Edm.Boolean" sap:label="Persist Notification" sap:filterable="false"/>
+                <Property Name="collection" Type="Edm.String" MaxLength="40" sap:label="Collection" sap:filterable="false"/>
+                <Property Name="filter" Type="Edm.String" sap:label="Filter" sap:filterable="false"/>
+                <Property Name="select" Type="Edm.String" MaxLength="255" sap:label="Select" sap:filterable="false"/>
+                <Property Name="changeType" Type="Edm.String" MaxLength="30" sap:label="Change Type"/>
+            </EntityType>
+            <EntityType Name="Notification" sap:semantics="notifications" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Notification ID"/>
+                <Property Name="collection" Type="Edm.String" MaxLength="40" sap:label="Collection"/>
+                <Property Name="title" Type="Edm.String" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="false" sap:label="Notif. Text"/>
+                <Property Name="updated" Type="Edm.DateTime" Precision="0" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="false" sap:label="Time Stamp"/>
+                <Property Name="changeType" Type="Edm.String" MaxLength="30" sap:label="Change Type"/>
+                <Property Name="entriesOfInterest" Type="Edm.Int32" sap:label="No. of Entries"/>
+                <Property Name="recipient" Type="Edm.String" MaxLength="112" sap:label="Recipient" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="districts" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvDistrict"/>
+                    <PropertyRef Name="IvDate"/>
+                    <PropertyRef Name="IvMon"/>
+                </Key>
+                <Property Name="IvDistrict" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="char8" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="IvDate" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Reserve" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMon" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvYear" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvTxt" Type="Edm.String" Nullable="false" MaxLength="255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EwpMonth" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SvTechHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Position or Job Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConsHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Resource Head Count" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DistOpsHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Resource Head Count" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TownOpsHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Resource Head Count" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FldSupHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MrHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotHC" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Comments" Type="Edm.String" Nullable="false" MaxLength="4000" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="techs" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvDistrict"/>
+                    <PropertyRef Name="IvDate"/>
+                    <PropertyRef Name="EwpMonth"/>
+                </Key>
+                <Property Name="IvDistrict" Type="Edm.String" Nullable="false" MaxLength="8" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="IvDate" Type="Edm.String" Nullable="false" MaxLength="6" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="EwpMonth" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SvtTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="SVT TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CopTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="COP TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DopTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="DOP TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TopTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="TOP TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ComTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="COM TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FspTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FSP TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MtrTotalHc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="MTR TOTAL HEAD COUNT" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApptHr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Position or Job Title" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NApptHr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Resource Head Count" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmerHr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Resource Head Count" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Comments" Type="Edm.String" Nullable="false" MaxLength="4000" sap:label="User Comments, on save" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="suprvRep" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvDate"/>
+                    <PropertyRef Name="IvDistrict"/>
+                </Key>
+                <Property Name="IvDate" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvDistrict" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvRegion" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvDivison" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvCat" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjHrs" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ActHrs" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Delta" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DeltaPer" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Target" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ExcCat" Type="Edm.String" Nullable="false" MaxLength="50" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Comments" Type="Edm.String" Nullable="false" MaxLength="4000" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZEWP_ADMIN_APP_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SubscriptionCollection" EntityType="ZEWP_ADMIN_APP_SRV_01.Subscription" sap:content-version="1"/>
+                <EntitySet Name="NotificationCollection" EntityType="ZEWP_ADMIN_APP_SRV_01.Notification" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="districtsSet" EntityType="ZEWP_ADMIN_APP_SRV_01.districts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="techsSet" EntityType="ZEWP_ADMIN_APP_SRV_01.techs" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="suprvRepSet" EntityType="ZEWP_ADMIN_APP_SRV_01.suprvRep" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZEWP_ADMIN_APP_SRV_01/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZEWP_ADMIN_APP_SRV_01/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
