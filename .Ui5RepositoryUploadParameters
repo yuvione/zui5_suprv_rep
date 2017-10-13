@@ -1,0 +1,6 @@
+SAPUI5ApplicationName=zui5_suprv_rep1
+SAPUI5ApplicationPackage=ZUI1
+SAPUI5ApplicationDescription=Simple SAPUI5 App
+ExternalCodePage=Cp1252
+AcceptUnixStyleEol=True
+DeltaMode=False
